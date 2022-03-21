@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://speechmt.azurewebsites.net/ -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>COMPRISE Speech Translation</title>
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="./assets/fancySelect.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/translator.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/reset-2.0.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/animate.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/style.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/asr.style.css" type="text/css" />
+    <!--<link rel="stylesheet" href="style/record.from.mic.css" type="text/css" />-->
+    <style id="runtime-style" type="text/css">
+      #mt-result-wrapper .translated-no-preview::after {
+        content: "Document translation finished!";
+      }
+      #doc-translation-block-top {
+        min-width: 35px;
+      }
+      #ocr-top-controls {
+        min-width: 35px;
+      }
+    </style>
+
+    <!-- Libraries section -->
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/jquery-2.1.3.min.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/noty.min.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/jquery-ui.min.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/RecordRTC.js.download"
+    ></script>
+    <!-- Application section -->
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/dict.locale.lv.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/dict.utilities.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/dict.model.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/dict.main.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/dict.settings.js.download"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="./assets/dict.dictation.js.download"
+    ></script>
+    <!-- Dictation libs -->
+    <script src="./assets/dictate.js.download"></script>
+    <script src="./assets/recorder2.js.download"></script>
+    <script src="./assets/vad.js.download"></script>
+    <script src="./assets/fst.js.download"></script>
+    <script src="./assets/digit-converter.js.download"></script>
+  </head>
+
+  <body
+    ondragstart="return false;"
+    is_asr_file_added="false"
+    is_ocr_file_added="false"
+    is_asr_active="false"
+    dictating_in_main_window="false"
+    activation-statuss="active"
+    autocheckupdates="false"
+    style="height: 1304px; width: 2436px"
+  >
+    <div
+      id="resizable"
+      class="ui-widget-content ui-resizable"
+      style="height: 1304px; width: 2436px"
+    >
+      <a href="#" id="fake-element" tabindex="-1"></a>
+      <div id="app-wrapper">
+        <div id="app-container" class="table">
+          <div id="view-panel" class="not-table-row">
+            <div id="subview-wrapper">
+              <div id="dictation_canvas_holder" class="hide">
+                <canvas
+                  id="canvas_for_animation"
+                  height="150"
+                  width="150"
+                ></canvas>
+                <div id="start_stop_dictation" class="dictation_begin"></div>
+              </div>
+              <div id="global-linear-loader" class="loader hidden">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+              </div>
+              <div
+                class="block navigation-item"
+                href="asr-view"
+                tabindex="145"
+                localize=""
+                locale-text="title_asr"
+              >
+                &nbsp;
+              </div>
+
+              <div class="subview inline_flex" id="asr-view">
+                <div id="dictation_step" class="hide"></div>
+
+                <div id="dictation_step_mac" class="">
+                  <div id="canvas_and_button_holder">
+                    <div
+                      id="start_stop_dictation_mac"
+                      class="dictation_begin_mac"
+                    ></div>
+                    <div id="dict_bottom_holder_mac">
+                      <!-- <img style="padding-left: 0;" class="dict_bottom_button"
+                                            src="./images/logo.png" />-->
+                      <img
+                        class="dict_bottom_button"
+                        style="float: right; width: 65px"
+                        src="./assets/tilde_white_small.svg"
+                      />
+                    </div>
+                  </div>
+
+                  <div id="dict_top_holder" class="bring_to_front">
+                    <div
+                      id="dictation-trans"
+                      contenteditable="true"
+                      spellcheck="false"
+                      style="height: 1224px"
+                    ></div>
+                  </div>
+
+                  <canvas id="canvas_dictation" height="250"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90"></div>
+      <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90"></div>
+      <div
+        class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+        style="z-index: 90"
+      ></div>
+    </div>
+  </body>
+</html>
